@@ -1,0 +1,26 @@
+{% extends "authbase.html" %}
+{% block formheader %}Register{% endblock formheader %}
+{% block contentform %}
+
+<form>
+    <div>
+        <label for="username">Email:</label>
+        <input class="form-control" placeholder="Enter Your Email" type="text" id="username" name="username">
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input class="form-control" placeholder="Enter the Password" type="password"  name="password">
+    </div>
+<div>
+        <label for="password">Confim Password:</label>
+        <input class="form-control" placeholder="Re-enter the Password" type="password"  name="password">
+    </div> 
+    <div class="mt-4">
+        <button type="submit">Register</button>
+    </div>
+</form>
+<a href="{% url 'login'%}" class="L-link ">Login</a>
+
+{% endblock contentform %}
+<a href="#" class="pr-5 mr-5 text-dark">Login</a>
+
