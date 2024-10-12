@@ -22,10 +22,10 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mx-auto justify-content-center">
               <li class="nav-item m-3">
-                <a class="nav-link active" aria-current="page" href="#">Content</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'listmovies'%}">Content</a>
               </li>
               <li class="nav-item m-3">
-                <a class="nav-link" href="#">User's</a>
+                <a class="nav-link" href="{% url 'users'%}">User's</a>
               </li>
               <li class="nav-item m-3">
                 <a class="nav-link" href="#">Subscriptions</a>
@@ -50,6 +50,6 @@
       {% endblock content %}
       
 
-    
+    {% block script %}{% endblock script %}
 </body>
 </html>

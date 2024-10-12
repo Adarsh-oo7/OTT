@@ -17,3 +17,17 @@ def rest_password(request):
 def change_password(request):
     return render(request,'changepassword.html')
 
+
+
+def users(request):
+    return render(request,'user/user.html')
+
+
+
+def watch_history(request):
+    return render(request,'user/watchHistory.html')
+
+
+
+def subscription_history(request):
+    return render(request,'user/subscriptionHistory.html')

@@ -1,0 +1,81 @@
+{% extends "nav.html" %}
+{% block content %}
+<div class="container m-5 text-dark">
+    <div class="d-flex justify-content-between align-items-center mx-5">
+      <div class="d-flex">
+        <input type="text" class="form-control rounded-pill custom-width-search me-2" placeholder="Search...">
+        <button class="btn btn-secondary">Search <i class="fas fa-search"></i></button>
+      </div>
+
+      <button class="btn btn-color">Add +</button>
+    </div>
+<div class="container mt-5 text-center">
+    <h3>Revenue Generated</h3>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Si No.</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>View</th>
+            <th>Delete</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Movie 1</td>
+            <td>Some description...</td>
+            <td><button class="btn btn-info">View</button></td>
+            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button></td>
+            <td><button class="btn btn-warning">Edit</button></td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Movie 1</td>
+            <td>Some description...</td>
+            <td><button class="btn btn-info">View</button></td>
+            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button></td>
+            <td><button class="btn btn-warning">Edit</button></td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Movie 1</td>
+            <td>Some description...</td>
+            <td><button class="btn btn-info">View</button></td>
+            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button></td>
+            <td><button class="btn btn-warning">Edit</button></td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Movie 1</td>
+            <td>Some description...</td>
+            <td><button class="btn btn-info">View</button></td>
+            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button></td>
+            <td><button class="btn btn-warning">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to delete this item?
+            </div>
+            <div class="modal-footer">
+              <!-- Cancel Button -->
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              
+              <!-- Confirm Delete Button -->
+              <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+          </div>
+        </div>
+</div>
+  </div>
+{% endblock content %}

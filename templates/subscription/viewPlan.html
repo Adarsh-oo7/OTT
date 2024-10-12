@@ -1,0 +1,37 @@
+{% extends "nav.html" %}
+{% block content %}
+<div class="container m-5">
+    <h3 class="text-center">View Plan</h3>
+    <div class="border text-center p-5">
+        <h4>Plan Name:- Plan2</h4>
+        <p>Description:- <b>adfasfadfsafsfdsfadsfsdfadssdf.</b></p>
+        <h5>Price:- $22.00</h5>
+        <h6>Duration</h6>
+    </div>
+
+    <!-- Toggle Switch -->
+    <label class="switch text-center mt-5 ">
+        <input type="checkbox" id="toggle-switch" onclick="toggleSwitch()">
+        <span class="slider"></span>
+    </label>
+
+    <p class="mt-3" id="status">Disabled</p>
+</div>
+{% endblock content %}
+
+{% block script %}
+<script>
+    function toggleSwitch() {
+        // Select the switch and status text
+        const toggleSwitch = document.getElementById('toggle-switch');
+        const statusText = document.getElementById('status');
+        
+        // Toggle the state and update status text
+        if (toggleSwitch.checked) {
+            statusText.textContent = " Enabled";
+        } else {
+            statusText.textContent = "Disabled";
+        }
+    }
+</script>
+{% endblock script %}

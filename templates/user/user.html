@@ -1,0 +1,60 @@
+{% extends "nav.html" %}
+{% block content %}
+<div class="container m-5">
+<h3 class='text-center'>User's List</h3>
+<div class="d-flex">
+    <input type="text" class="form-control rounded-pill custom-width-search me-2" placeholder="Search...">
+    <button class="btn btn-secondary">Search <i class="fas fa-search"></i></button>
+  </div>
+
+  
+  <div class="table-responsive text-center">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Si No</th>
+            <th scope="col">User name</th>
+            <th scope="col">Block/ Unblock</th>
+            <th scope="col">Wub history</th>
+            <th scope="col">Watch history</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td><button class="btn btn-secondary">block</button></td>
+            <td><a href="{% url 'subhistory'%}" class="btn btn-success">subscription History</a></td>
+            <td><a href="{% url 'watchHistory' %}" class="btn btn-primary">watch History</a></td>
+
+          </tr>
+          
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td><button class="btn btn-secondary">block</button></td>
+            <td><button class="btn btn-success">subscription History</button></td>
+            <td><button class="btn btn-primary">watch History</button></td>
+
+
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td><button class="btn btn-danger">Unblock</button></td>
+            <td><button class="btn btn-success">subscription History</button></td>
+            <td><button class="btn btn-primary">watch History</button></td>
+
+
+          </tr>
+        </tbody>
+      </table>
+     
+
+  </div>
+
+
+
+</div>
+{% endblock content %}

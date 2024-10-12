@@ -1,0 +1,21 @@
+{% extends "nav.html" %}
+{% load static %}
+{% block content %}
+<div class="container mt-5 pt-5">
+
+    <div class="row d-flex justify-content-center"> <!-- Centers the card horizontally -->
+        <div class="col-md-6"> <!-- Adjust column width if necessary -->
+            <div class="card mx-auto" style="width: 18rem;"> <!-- mx-auto centers the card -->
+                <img class="card-img-top" src="{% static 'imgs/thor.jpg'%}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><b>Movie Name:-</b> Card title</h5>
+                    <small class="card-text"><b>Description:-</b> Some quick example text to build on the card title and make up the bulk of the card's content.</small><br>
+                    <a href="#" class="btn btn-warning m-4 ">Edit</a>
+                    <a href="#" class="btn btn-danger ml-5">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
