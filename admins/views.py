@@ -16,3 +16,4 @@ def rest_password(request):
 
 def change_password(request):
     return render(request,'changepassword.html')
+
