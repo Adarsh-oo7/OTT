@@ -28,17 +28,17 @@
                 <a class="nav-link" href="{% url 'users'%}">User's</a>
               </li>
               <li class="nav-item m-3">
-                <a class="nav-link" href="#">Subscriptions</a>
+                <a class="nav-link" href="{% url "plans"%}">Subscriptions</a>
               </li>
               <li class="nav-item dropdown m-3">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Reports
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">Revenue Genarated</a></li>
-                  <li><a class="dropdown-item" href="#">View Count</a></li>
-                  <li><a class="dropdown-item" href="#">Subscription History</a></li>
-                  <li><a class="dropdown-item" href="#">Move Rating</a></li>
+                  <li><a class="dropdown-item" href="{% url "revenueGenerated"%}">Revenue Genarated</a></li>
+                  <li><a class="dropdown-item" href="{% url "viewCount" %}">View Count</a></li>
+                  <li><a class="dropdown-item" href="{% url "subHistory" %}">Subscription History</a></li>
+                  <li><a class="dropdown-item" href="{% url "moveRating" %}">Move Rating</a></li>
 
                 </ul>
               </li>

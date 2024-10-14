@@ -1,0 +1,61 @@
+{% extends "nav.html" %}
+{% block content %}
+
+
+<div class="container m-5 text-dark">
+    <div class="d-flex justify-content-between align-items-center mx-5">
+      <div class="d-flex">
+        <input type="text" class="form-control rounded-pill custom-width-search me-2" placeholder="Search...">
+        <button class="btn btn-secondary">Search <i class="fas fa-search"></i></button>
+      </div>
+
+    </div>
+<div class="container mt-5 text-center">
+    <h3>Subscription History</h3>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Si No.</th>
+            <th>User</th>
+            <th>Plan</th>
+            <th>Date</th>
+            <th>Price</th>
+        
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Adarsh</td>
+            <td>Plan1</td>
+            <td>4/12/2021</td>
+            <td>200$</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Thor</td>
+            <td>Plan1</td>
+            <td>23/1/2021</td>
+            <td>200$</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Midhin</td>
+            <td>Plan1</td>
+            <td>16/12/2021</td>
+            <td>200$</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Ullekh</td>
+            <td>Plan2</td>
+            <td>4/2/2021</td>
+            <td>250$</td>
+          </tr>
+        </tbody>
+      </table>
+     
+</div>
+  </div>
+{% endblock content %}

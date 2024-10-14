@@ -1,0 +1,49 @@
+{% extends "nav.html" %}
+{% block content %}
+
+<div class="container m-5 text-dark">
+    <div class="d-flex justify-content-between align-items-center mx-5">
+      <div class="d-flex">
+        <input type="text" class="form-control rounded-pill custom-width-search me-2" placeholder="Search...">
+        <button class="btn btn-secondary">Search <i class="fas fa-search"></i></button>
+      </div>
+
+    </div>
+<div class="container mt-5 text-center">
+    <h3>Movie Rating</h3>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Si No.</th>
+            <th>Movie</th>
+            <th>Rating</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>movie1</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Movie2</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Movie3</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Movie4</td>
+            <td>2</td>
+          </tr>
+        </tbody>
+      </table>
+     
+</div>
+  </div>
+{% endblock content %}
