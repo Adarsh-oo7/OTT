@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'admins',
     'moves',
     'plans',
-    'reports'
+    'reports',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'API'
 ]
 
 MIDDLEWARE = [
@@ -52,6 +55,17 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# settings.py
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+        'rest_framework.permissions.IsAuthenticated', )
+}
 
 ROOT_URLCONF = 'OTT.urls'
 
@@ -73,17 +87,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'OTT.wsgi.application'
 
+AUTH_USER_MODEL = 'admins.customUser'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ott',  
+        'USER': 'root',  
+        'PASSWORD': 'thor',   
+        'HOST': 'localhost',           
+        'PORT': '3306',                
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

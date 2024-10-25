@@ -22,5 +22,6 @@ urlpatterns = [
     path('',include('admins.urls')),
     path('moves/',include('moves.urls')),
     path('sub/',include('plans.urls')),
-    path('reports/',include('reports.urls'))
+    path('reports/',include('reports.urls')),
+    path('API/',include('API.urls'))
 ]
