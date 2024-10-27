@@ -6,6 +6,11 @@ from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate
 from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
 from rest_framework.authtoken.models import Token
+from moves.models import movie
+from .serializers import MovieSerializer
+from rest_framework import status
+from django.shortcuts import get_object_or_404
+
 
 
 
@@ -38,3 +43,22 @@ def login(request):
                         status=HTTP_404_NOT_FOUND)
     token, _ = Token.objects.get_or_create(user=user)
     return Response({'token': token.key},status=HTTP_200_OK)
+
+
+
+@api_view(["GET"])
+@permission_classes((AllowAny,))
+def movie_listing(request):
+    data=movie.objects.all()
+    for da in data:
+        print(da.title)
+    Sdata=MovieSerializer(data, many=True)
+    return Response(Sdata.data)
+
+
+@api_view(["GET"])
+@permission_classes((AllowAny,))
+def movie_detail(request, id):
+    Movie = get_object_or_404(movie, id=id)
+    Sdata = MovieSerializer(Movie)
+    return Response(Sdata.data, status=status.HTTP_200_OK)

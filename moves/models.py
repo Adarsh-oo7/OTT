@@ -4,8 +4,8 @@ from django.db import models
 class movie(models.Model):
     title=models.CharField(max_length=100)
     description=models.CharField(max_length=255)
-    thumbnail=models.FileField(upload_to=None)
-    video=models.FileField(upload_to=None)
+    thumbnail=models.ImageField(upload_to='thumbnails/', blank=True, null=True)
+    video=models.FileField(upload_to='videos/')
     count=models.IntegerField()
 
 
