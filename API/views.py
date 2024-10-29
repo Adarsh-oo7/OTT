@@ -1,6 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny,IsAuthenticated
 from django.views.decorators.csrf import csrf_exempt
 from .forms import CustomUserCreationForm  
 from django.contrib.auth import authenticate
@@ -59,6 +59,16 @@ def movie_listing(request):
 @api_view(["GET"])
 @permission_classes((AllowAny,))
 def movie_detail(request, id):
+    (id)
     Movie = get_object_or_404(movie, id=id)
     Sdata = MovieSerializer(Movie)
     return Response(Sdata.data, status=status.HTTP_200_OK)
+
+
+
+
+@api_view((["GET"]))
+@permission_classes((IsAuthenticated))
+def movie_history(request):
+    
+    return Response()
