@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class movie(models.Model):
@@ -10,11 +11,15 @@ class movie(models.Model):
 
 
 class watch_list(models.Model):
-    user_id=models.OneToOneField("admins.customUser", on_delete=models.CASCADE)
-    movie_id=models.OneToOneField("moves.movie",  on_delete=models.CASCADE)
+    user_id=models.ForeignKey("admins.customUser", on_delete=models.CASCADE)
+    movie_id=models.ForeignKey("moves.movie",  on_delete=models.CASCADE)
 
 
 class watch_history(models.Model):
-    user_id=models.OneToOneField("admins.customUser",  on_delete=models.CASCADE)
-    movie_id=models.OneToOneField("moves.movie",  on_delete=models.CASCADE)
-    date_time=models.DateTimeField( auto_now=True,auto_now_add=False)
+    user = models.ForeignKey("admins.customUser", on_delete=models.CASCADE)
+    movie = models.ForeignKey("moves.movie", on_delete=models.CASCADE)
+    date_time = models.DateTimeField(default=timezone.now)  # Use auto_now_add for creation time
+
+  
+    def __str__(self):
+        return f"{self.user} watched {self.movie} on {self.date_time}"

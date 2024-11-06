@@ -11,9 +11,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -43,7 +47,8 @@ INSTALLED_APPS = [
     'reports',
     'rest_framework',
     'rest_framework.authtoken',
-    'API'
+    'API',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -54,9 +59,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
-# settings.py
+# CORS allowed origins
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # React app
+    "http://127.0.0.1:5173",
+]
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
