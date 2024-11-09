@@ -8,7 +8,7 @@
         <button class="btn btn-secondary">Search <i class="fas fa-search"></i></button>
       </div>
 
-      <button class="btn btn-color">Add +</button>
+      <a class="btn btn-color" href={% url 'addMove' %}>Add +</a>
     </div>
 <div class="container mt-5 text-center">
     <h3>Move list</h3>
@@ -24,38 +24,19 @@
           </tr>
         </thead>
         <tbody>
+          {% for datas in data%}
           <tr>
-            <td>1</td>
-            <td>Movie 1</td>
-            <td>Some description...</td>
+            <td>{{datas.id}}</td>
+            <td>{{datas.title}}</td>
+            <td>{{datas.description}}</td>
             <td><a href="{% url 'movieView' %}" class="btn btn-info">View</a></td>
             <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa-solid fa-trash-can"></i>Delete</button></td>
             <td><button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i>Edit</button></td>
           </tr>
-          <tr>
-            <td>1</td>
-            <td>Movie 1</td>
-            <td>Some description...</td>
-            <td><button class="btn btn-info">View</button></td>
-            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa-solid fa-trash-can"></i>Delete</button></td>
-            <td><button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i>Edit</button></td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Movie 1</td>
-            <td>Some description...</td>
-            <td><button class="btn btn-info">View</button></td>
-            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa-solid fa-trash-can"></i>Delete</button></td>
-            <td><button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i>Edit</button></td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Movie 1</td>
-            <td>Some description...</td>
-            <td><button class="btn btn-info">View</button></td>
-            <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fa-solid fa-trash-can mr-2"></i>Delete</button></td>
-            <td><button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i>Edit</button></td>
-          </tr>
+
+          {% endfor %}
+
+
         </tbody>
       </table>
       <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">

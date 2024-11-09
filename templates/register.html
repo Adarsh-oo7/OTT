@@ -2,10 +2,11 @@
 {% block formheader %}Register{% endblock formheader %}
 {% block contentform %}
 
-<form>
+<form method="POST">
+    {% csrf_token %}
     <div>
         <label for="username">Email:</label>
-        <input class="form-control" placeholder="Enter Your Email" type="text" id="username" name="username">
+        <input class="form-control" placeholder="Enter Your Email" type="text" id="email" name="email">
     </div>
     <div>
         <label for="password">Password:</label>
@@ -13,7 +14,7 @@
     </div>
 <div>
         <label for="password">Confim Password:</label>
-        <input class="form-control" placeholder="Re-enter the Password" type="password"  name="password">
+        <input class="form-control" placeholder="Re-enter the Password" type="password"  name="cpassword">
     </div> 
     <div class="mt-4">
         <button type="submit">Register</button>

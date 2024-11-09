@@ -1,9 +1,12 @@
 from django.shortcuts import render
-
+from .models import movie
 # Create your views here.
 
 def list_movies(request):
-    return render(request,'content.html')
+    data=movie.objects.all()
+    print(data)
+
+    return render(request,'content.html',{'data':data})
 
 
 

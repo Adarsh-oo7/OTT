@@ -24,14 +24,14 @@ class CustomUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractUser):
-    email = models.EmailField(unique=True)  # Changed to EmailField for better validation
+    email = models.EmailField(unique=True)  
     username = models.CharField(max_length=150, null=True, unique=False)
     token = models.CharField(max_length=40, null=True)
     block = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     
-    is_staff = models.BooleanField(default=False)  # Ensure is_staff is defined in the model
-    is_active = models.BooleanField(default=True)  # Ensure is_active is defined for user activation
+    is_staff = models.BooleanField(default=False) 
+    is_active = models.BooleanField(default=True)  
     
     objects = CustomUserManager()
 

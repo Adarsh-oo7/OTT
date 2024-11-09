@@ -20,10 +20,12 @@
         <h1> Login</h1>
 
         
-        <form>
+        <form method="POST">
+            {% csrf_token %}
+
             <div>
                 <label for="username">Email:</label>
-                <input class="form-control" placeholder="Enter Your Email" type="text" id="username" name="username">
+                <input class="form-control" placeholder="Enter Your Email" type="text" id="email" name="email">
             </div>
             <div>
                 <label for="password">Password:</label>
