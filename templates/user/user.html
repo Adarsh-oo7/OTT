@@ -21,16 +21,23 @@
           </tr>
         </thead>
         <tbody>
+          {% for users in user%}
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td><button class="btn btn-secondary">block</button></td>
-            <td><a href="{% url 'subhistory'%}" class="btn btn-success">subscription History</a></td>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{users.email}}</td>
+            <td>
+              {% if users.block %}
+                  <a href="{% url 'unblock_user' users.id %}" class="btn btn-danger">Unblock</a>
+              {% else %}
+                  <a href="{% url 'block_user' users.id %}" class="btn btn-secondary">Block</a>
+              {% endif %}
+          </td>            <td><a href="{% url 'subhistory'%}" class="btn btn-success">subscription History</a></td>
             <td><a href="{% url 'watchHistory' %}" class="btn btn-primary">watch History</a></td>
 
           </tr>
+          {% endfor %}
           
-          <tr>
+          {% comment %} <tr>
             <th scope="row">2</th>
             <td>Jacob</td>
             <td><button class="btn btn-secondary">block</button></td>
@@ -47,7 +54,7 @@
             <td><button class="btn btn-primary">watch History</button></td>
 
 
-          </tr>
+          </tr> {% endcomment %}
         </tbody>
       </table>
      

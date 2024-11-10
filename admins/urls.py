@@ -8,7 +8,9 @@ urlpatterns = [
     # path('content',views.content,name="content")
     path('user',views.users,name="users"),
     path('watchHistory',views.watch_history,name="watchHistory"),
-    path('subHistory',views.subscription_history,name="subhistory")
+    path('subHistory',views.subscription_history,name="subhistory"),
+    path('user/<int:user_id>/block/', views.block_user, name='block_user'),
+    path('user/<int:user_id>/unblock/', views.unblock_user, name='unblock_user'),
 
 
 ]

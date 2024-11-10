@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from API.forms import CustomUserCreationForm
 from django.contrib import messages
 from .models import CustomUser
@@ -52,7 +52,9 @@ def change_password(request):
 
 
 def users(request):
-    return render(request,'user/user.html')
+    user=CustomUser.objects.all()
+    
+    return render(request,'user/user.html',{"user":user})
 
 
 
@@ -63,3 +65,21 @@ def watch_history(request):
 
 def subscription_history(request):
     return render(request,'user/subscriptionHistory.html')
+
+
+
+
+
+
+def block_user(request, user_id):
+    user = get_object_or_404(CustomUser, id=user_id)
+    user.block = True
+    user.save()
+    return redirect('users')  
+
+
+def unblock_user(request, user_id):
+    user = get_object_or_404(CustomUser, id=user_id)
+    user.block = False
+    user.save()
+    return redirect('users')

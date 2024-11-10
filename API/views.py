@@ -13,7 +13,7 @@ from rest_framework import status
 from django.shortcuts import get_object_or_404
 
 
-@csrf_exempt  # Use with caution
+@csrf_exempt  
 @api_view(['POST'])
 @permission_classes((AllowAny,))
 def Register(request):
@@ -23,8 +23,8 @@ def Register(request):
         form.save()
         return Response({"message": "Account created successfully"}, status=status.HTTP_201_CREATED)
     
-    # Get errors and return them in a structured format
-    errors = form.errors.as_json()  # This converts the errors to JSON format
+    
+    errors = form.errors.as_json() 
     return Response({"errors": errors}, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -32,7 +32,7 @@ def Register(request):
 @api_view(["POST"])
 @permission_classes((AllowAny,))
 def login(request):
-    email = request.data.get("email")  # Use "email" as per your authentication method
+    email = request.data.get("email") 
     password = request.data.get("password")
     if email is None or password is None:
         return Response({'error': 'Please provide both email and password'}, status=HTTP_400_BAD_REQUEST)
@@ -94,6 +94,22 @@ def add_watch_later(request):
         'message': "Movie added to watch later successfully.",
         'movie_id': movie_id 
     }, status=status.HTTP_201_CREATED) 
+
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def watch_later(request):
+    print(request.user)
+    history = watch_list.objects.filter(user_id=request.user.id)
+    serdat=movie.objects.filter(movie)
+    serializer = WatchListSerializer(history, many=True)
+    return Response(serializer.data)
+
+
+
+
+
 
 
 

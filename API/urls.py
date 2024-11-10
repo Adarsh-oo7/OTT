@@ -8,7 +8,7 @@ urlpatterns = [
     path("movieHistory",views.movie_history,name="MovieHistory"),
     path('addWatchList',views.add_watch_later,name="watchlist"),
     path("user/email", views.get_user_email, name="get_user_email"),
-
+    path('watchlat',views.watch_later,name="watchlate")
     
 ]
  
