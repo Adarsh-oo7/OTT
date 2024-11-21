@@ -3,36 +3,38 @@
 
 <div class="container m-5">
     <div class="container mt-5">
-      <button class="btn btn-secondary">
+      <a class="btn btn-secondary" href="{% url 'listmovies' %}">
         <i class="fas fa-arrow-left"></i> Back
-      </button>
+      </a>
     </div>
       <h3 class="text-center">Edit Movies</h3>
       <div class="container item-center"> 
           
-          <form>
-              <div class="mb-3">
-                <label for="movieName" class="form-label">Movie Name</label>
-                <input type="text" class="form-control" id="movieName" placeholder="Enter movie name" required>
-              </div>
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="movieName" class="form-label">Movie Name</label>
+            <input type="text" name="title" value="{{ move.title }}" class="form-control" id="movieName" placeholder="Enter movie name" >
+          </div>
         
-              <div class="mb-3">
-                <label for="thumbnail" class="form-label">Movie Thumbnail</label>
-                <input type="file" class="form-control" id="thumbnail" accept="image/*" required>
-              </div>
+          <div class="mb-3">
+            <label for="thumbnail" class="form-label">Movie Thumbnail</label>
+            <input type="file" name="thumbnail" class="form-control" id="thumbnail" accept="image/*" >
+          </div>
         
-              <div class="mb-3">
-                <label for="movieVideo" class="form-label">Movie Video</label>
-                <input type="file" class="form-control" id="movieVideo" accept="video/*" required>
-              </div>
+          <div class="mb-3">
+            <label for="movieVideo" class="form-label">Movie Video</label>
+            <input type="file" name="video" class="form-control" id="movieVideo" accept="video/*" >
+          </div>
         
-              <div class="mb-3">
-                <label for="movieDescription" class="form-label">Movie Description</label>
-                <textarea class="form-control" id="movieDescription" rows="4" placeholder="Enter movie description" required></textarea>
-              </div>
+          <div class="mb-3">
+            <label for="movieDescription" class="form-label">Movie Description</label>
+            <textarea name="description" class="form-control" id="movieDescription" rows="4" placeholder="Enter movie description" >{{ move.description }}</textarea>
+          </div>
         
-              <button type="submit" class="btn btn-color text-center">Edit and Upload <i class="fa-solid fa-upload"></i></button>
-            </form>
+          <button type="submit" class="btn btn-color text-center">Edit and Upload <i class="fa-solid fa-upload"></i></button>
+        </form>
+        
           </div>
   
       </div>

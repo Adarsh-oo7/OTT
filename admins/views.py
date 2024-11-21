@@ -3,7 +3,6 @@ from API.forms import CustomUserCreationForm
 from django.contrib import messages
 from .models import CustomUser
 from django.contrib.auth import authenticate
-# Create your views here.
 
 def register(request):
     if request.method == "POST":

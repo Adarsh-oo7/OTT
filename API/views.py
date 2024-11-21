@@ -59,19 +59,29 @@ def movie_listing(request):
 @api_view(["GET"])
 @permission_classes((AllowAny,))
 def movie_detail(request, id):
+
    
     Movie = get_object_or_404(movie, id=id)
+    Movie.count=Movie.count+1
+    Movie.save()
     Sdata = MovieSerializer(Movie)
+    print(Movie.count)
     return Response(Sdata.data, status=status.HTTP_200_OK)
 
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
 def movie_history(request):
-    history = watch_history.objects.filter(user=request.user)
-    serializer = MovieHistorySerializer(history, many=True)
-    return Response(serializer.data)
+    history = watch_history.objects.filter(user=request.user).select_related('movie')
 
+    serializer = MovieHistorySerializer(history, many=True)
+
+    for obs in serializer.data:
+        print("hellow")
+        print(f"Movie Title: {obs['movie_details']['title']}")
+        print(f"Movie Thumbnail: {obs['movie_details']['thumbnail']}")
+
+    return Response(serializer.data)
 
 
 @api_view(["POST"])
@@ -98,19 +108,25 @@ def add_watch_later(request):
 
 
 
-@api_view(["GET"])
+
+@api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def watch_later(request):
-    print(request.user)
-    history = watch_list.objects.filter(user_id=request.user.id)
-    serdat=movie.objects.filter(movie)
-    serializer = WatchListSerializer(history, many=True)
+    wat = watch_list.objects.filter(user_id=request.user).select_related('movie_id')
+
+    for obj in wat:
+        print(f"User ID: {obj.user_id}")
+        print(f"Movie Title: {obj.movie_id.title}")
+        print(f"Movie Thumbnail: {obj.movie_id.thumbnail}")
+
+    serializer = WatchListSerializer(wat, many=True)
+
+    for obs in serializer.data:
+        print("hellow")
+        print(f"Movie Title: {obs['movie']['title']}")
+        print(f"Movie Thumbnail: {obs['movie']['thumbnail']}")
+
     return Response(serializer.data)
-
-
-
-
-
 
 
 

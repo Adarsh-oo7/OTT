@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from django.contrib.messages import constants as messages
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -66,10 +68,9 @@ MIDDLEWARE = [
 # CORS allowed origins
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # React app
-    "http://127.0.0.1:5173",
+    "http://127.0.0.1:5173", 
 ]
 
-from django.contrib.messages import constants as messages
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'secondary',

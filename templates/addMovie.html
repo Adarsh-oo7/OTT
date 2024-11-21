@@ -8,26 +8,34 @@
   </div>
     <h3 class="text-center">Add Movies</h3>
     <div class="container item-center"> 
+      {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="alert alert-{{ message.tags }}">{{ message|safe }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
         
-        <form>
+        <form enctype="multipart/form-data" method="POST">
+          {%  csrf_token %}
             <div class="mb-3">
               <label for="movieName" class="form-label">Movie Name</label>
-              <input type="text" class="form-control" id="movieName" placeholder="Enter movie name" required>
+              <input type="text" class="form-control" name="movieName" placeholder="Enter movie name" required>
             </div>
       
             <div class="mb-3">
               <label for="thumbnail" class="form-label">Movie Thumbnail</label>
-              <input type="file" class="form-control" id="thumbnail" accept="image/*" required>
+              <input type="file" class="form-control" name="thumbnail" accept="image/*" required>
             </div>
       
             <div class="mb-3">
               <label for="movieVideo" class="form-label">Movie Video</label>
-              <input type="file" class="form-control" id="movieVideo" accept="video/*" required>
+              <input type="file" class="form-control" name="movieVideo" accept="video/*" required>
             </div>
       
             <div class="mb-3">
               <label for="movieDescription" class="form-label">Movie Description</label>
-              <textarea class="form-control" id="movieDescription" rows="4" placeholder="Enter movie description" required></textarea>
+              <textarea class="form-control" name="movieDescription" rows="4" placeholder="Enter movie description" required></textarea>
             </div>
       
             <button type="submit" class="btn btn-color text-center">Upload <i class="fa-solid fa-upload"></i></button>
