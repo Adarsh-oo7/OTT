@@ -10,6 +10,8 @@ def plans(request):
 
 
 
+
+
 def view_plan(request):
     return render(request,'subscription/viewPlan.html')
 
