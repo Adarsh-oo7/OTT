@@ -6,6 +6,7 @@ from django.utils.html import escape,mark_safe
 
 
 from django.http import JsonResponse
+
 # Create your views here.
 
 def list_movies(request):
